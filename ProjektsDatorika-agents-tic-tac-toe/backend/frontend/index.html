@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tic Tac Toe AI Game</title>
+    <title>Krustiņi un Nullītes</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,11 +11,11 @@
         <!-- Main Menu Screen -->
         <div id="menu-screen" class="screen active">
             <div class="menu-content">
-                <h1>Tic Tac Toe AI</h1>
-                <p class="subtitle">Play Against AI</p>
+                <h1>Krustiņi un Nullītes</h1>
+                <p class="subtitle">Spēlē pret MI</p>
 
                 <div class="form-group">
-                    <label for="nickname-input">Enter Your Nickname:</label>
+                    <label for="nickname-input">Ievadi savu vārdu:</label>
                     <input
                         type="text"
                         id="nickname-input"
@@ -25,24 +25,24 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="difficulty-select">Select Difficulty:</label>
+                    <label for="difficulty-select">Izvēlies grūtības līmeni:</label>
                     <select id="difficulty-select">
-                        <option value="easy">Easy</option>
-                        <option value="medium" selected>Medium</option>
-                        <option value="hard">Hard</option>
+                        <option value="easy">Viegls</option>
+                        <option value="medium" selected>Vidējs</option>
+                        <option value="hard">Grūts</option>
                     </select>
                 </div>
 
-                <button id="start-btn" class="btn btn-primary">Start Game</button>
-                <button id="view-leaderboard-btn" class="btn btn-secondary">View Leaderboard</button>
+                <button id="start-btn" class="btn btn-primary">Sākt Spēli</button>
+                <button id="view-leaderboard-btn" class="btn btn-secondary">Skatīt līderu tabulu</button>
             </div>
         </div>
 
         <!-- Game Screen -->
         <div id="game-screen" class="screen">
             <div class="game-header">
-                <h2 id="game-title">Game</h2>
-                <p id="game-status">Your Turn (X)</p>
+                <h2 id="game-title">Spēle</h2>
+                <p id="game-status">Tava kārta (X)</p>
             </div>
 
             <div class="game-board">
@@ -58,39 +58,39 @@
             </div>
 
             <div class="game-controls">
-                <button id="restart-btn" class="btn btn-primary">Play Again</button>
-                <button id="menu-btn" class="btn btn-secondary">Back to Menu</button>
+                <button id="restart-btn" class="btn btn-primary">Spēlēt vēlreiz</button>
+                <button id="menu-btn" class="btn btn-secondary">Atgriezties sākumlapā</button>
             </div>
         </div>
 
         <!-- Leaderboard Screen -->
         <div id="leaderboard-screen" class="screen">
             <div class="leaderboard-header">
-                <h2>Leaderboard</h2>
-                <p>Top Players</p>
+                <h2>Līderu tabula</h2>
+                <p>Top Spēlētāji</p>
             </div>
 
             <div class="leaderboard-content">
                 <table class="leaderboard-table">
                     <thead>
                         <tr>
-                            <th>Rank</th>
-                            <th>Player</th>
-                            <th>Wins</th>
-                            <th>Losses</th>
-                            <th>Draws</th>
-                            <th>Total</th>
+                            <th>Vieta</th>
+                            <th>Spēlētājs</th>
+                            <th>Uzvaras</th>
+                            <th>Zaudējumi</th>
+                            <th>Neizšķirts</th>
+                            <th>Kopā</th>
                         </tr>
                     </thead>
                     <tbody id="leaderboard-body">
                         <tr class="loading">
-                            <td colspan="6">Loading...</td>
+                            <td colspan="6">Lādējas...</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
 
-            <button id="back-from-leaderboard-btn" class="btn btn-secondary">Back to Menu</button>
+            <button id="back-from-leaderboard-btn" class="btn btn-secondary">Atgriezties sākumlapā</button>
         </div>
     </div>
 

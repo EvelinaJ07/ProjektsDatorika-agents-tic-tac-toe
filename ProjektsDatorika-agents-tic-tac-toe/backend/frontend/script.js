@@ -59,7 +59,7 @@ function startGame() {
     const nickname = elements.nicknameInput.value.trim();
 
     if (!nickname) {
-        alert('Please enter your nickname');
+        alert('Lūdzu, ievadiet savu vārdu, lai sākt spēli!');
         return;
     }
 
@@ -103,7 +103,7 @@ async function handleCellClick(event) {
 
     try {
         elements.boardCells.forEach(cell => cell.classList.add('disabled'));
-        elements.gameStatus.textContent = 'AI is thinking...';
+        elements.gameStatus.textContent = 'MI domā...';
 
         const response = await fetch(`${API_URL}/make-move`, {
             method: 'POST',
@@ -118,7 +118,7 @@ async function handleCellClick(event) {
         });
 
         if (!response.ok) {
-            throw new Error('Failed to make move');
+            throw new Error('Neizdevās veikt gājienu!');
         }
 
         const data = await response.json();
@@ -131,13 +131,13 @@ async function handleCellClick(event) {
 
             if (data.player_wins) {
                 gameState.gameResult = 'Win';
-                elements.gameStatus.textContent = '🎉 You Won!';
+                elements.gameStatus.textContent = '🎉 Tu uzvarēji!';
             } else if (data.ai_wins) {
                 gameState.gameResult = 'Loss';
-                elements.gameStatus.textContent = '😢 AI Won!';
+                elements.gameStatus.textContent = '😢 MI uzvarēja!';
             } else if (data.is_draw) {
                 gameState.gameResult = 'Draw';
-                elements.gameStatus.textContent = "🤝 It's a Draw!";
+                elements.gameStatus.textContent = "🤝 Neizšķirts!";
             }
 
             await saveGameResult();
@@ -149,7 +149,7 @@ async function handleCellClick(event) {
         renderBoard();
     } catch (error) {
         console.error('Error:', error);
-        alert('An error occurred. Please try again.');
+        alert('Radās kļūda. Lūdzu, mēģiniet vēlreiz.');
         gameState.playerTurn = true;
         updateGameStatus();
     } finally {
@@ -163,9 +163,9 @@ function updateGameStatus() {
     }
 
     if (gameState.playerTurn) {
-        elements.gameStatus.textContent = 'Your Turn (X)';
+        elements.gameStatus.textContent = 'Tava kārta (X)';
     } else {
-        elements.gameStatus.textContent = "AI's Turn (O)";
+        elements.gameStatus.textContent = "MI kārta (O)";
     }
 }
 
@@ -204,10 +204,10 @@ async function saveGameResult() {
         });
 
         if (!response.ok) {
-            console.error('Failed to save result');
+            console.error('Neizdevās saglabāt rezultātu!');
         }
     } catch (error) {
-        console.error('Error saving result:', error);
+        console.error('Kļūda saglabājot rezultātu:', error);
     }
 }
 
@@ -223,7 +223,7 @@ async function loadLeaderboard() {
         const response = await fetch(`${API_URL}/leaderboard?limit=20`);
 
         if (!response.ok) {
-            throw new Error('Failed to fetch leaderboard');
+            throw new Error('Kļūda ielādējot līderu tabulu!');
         }
 
         const data = await response.json();
@@ -250,7 +250,7 @@ async function loadLeaderboard() {
 
         elements.leaderboardBody.innerHTML = html;
     } catch (error) {
-        console.error('Error loading leaderboard:', error);
+        console.error('Kļūda ielādējot līderu tabulu:', error);
         elements.leaderboardBody.innerHTML = '<tr><td colspan="6" style="text-align: center; color: #f44336;">Error loading leaderboard</td></tr>';
     }
 }
