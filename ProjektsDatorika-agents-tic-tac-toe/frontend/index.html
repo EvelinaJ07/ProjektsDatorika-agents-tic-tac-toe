@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe AI Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Main Menu Screen -->
+        <div id="menu-screen" class="screen active">
+            <div class="menu-content">
+                <h1>Tic Tac Toe AI</h1>
+                <p class="subtitle">Play Against AI</p>
+
+                <div class="form-group">
+                    <label for="nickname-input">Enter Your Nickname:</label>
+                    <input
+                        type="text"
+                        id="nickname-input"
+                        placeholder="Your Name"
+                        maxlength="20"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="difficulty-select">Select Difficulty:</label>
+                    <select id="difficulty-select">
+                        <option value="easy">Easy</option>
+                        <option value="medium" selected>Medium</option>
+                        <option value="hard">Hard</option>
+                    </select>
+                </div>
+
+                <button id="start-btn" class="btn btn-primary">Start Game</button>
+                <button id="view-leaderboard-btn" class="btn btn-secondary">View Leaderboard</button>
+            </div>
+        </div>
+
+        <!-- Game Screen -->
+        <div id="game-screen" class="screen">
+            <div class="game-header">
+                <h2 id="game-title">Game</h2>
+                <p id="game-status">Your Turn (X)</p>
+            </div>
+
+            <div class="game-board">
+                <div class="board-cell" data-position="0"></div>
+                <div class="board-cell" data-position="1"></div>
+                <div class="board-cell" data-position="2"></div>
+                <div class="board-cell" data-position="3"></div>
+                <div class="board-cell" data-position="4"></div>
+                <div class="board-cell" data-position="5"></div>
+                <div class="board-cell" data-position="6"></div>
+                <div class="board-cell" data-position="7"></div>
+                <div class="board-cell" data-position="8"></div>
+            </div>
+
+            <div class="game-controls">
+                <button id="restart-btn" class="btn btn-primary">Play Again</button>
+                <button id="menu-btn" class="btn btn-secondary">Back to Menu</button>
+            </div>
+        </div>
+
+        <!-- Leaderboard Screen -->
+        <div id="leaderboard-screen" class="screen">
+            <div class="leaderboard-header">
+                <h2>Leaderboard</h2>
+                <p>Top Players</p>
+            </div>
+
+            <div class="leaderboard-content">
+                <table class="leaderboard-table">
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Player</th>
+                            <th>Wins</th>
+                            <th>Losses</th>
+                            <th>Draws</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody id="leaderboard-body">
+                        <tr class="loading">
+                            <td colspan="6">Loading...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <button id="back-from-leaderboard-btn" class="btn btn-secondary">Back to Menu</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
